@@ -14,7 +14,7 @@
             $blog->n_blog_post_id = $_POST['blog_id'];
             if ($blog->inactive()) {
                 flag_set('Restore blog to inactive successfully!');
-                redirect('deleted_blogs.php');
+                redirect();
             }
 
         }
@@ -23,7 +23,7 @@
             $blog->n_blog_post_id = $_POST['blog_id'];
             if ($blog->active()) {
                 flag_set('Restore blog to active blog successfully!');
-                redirect('deleted_blogs.php');
+                redirect();
             }
 
         }

@@ -12,14 +12,14 @@
             if (md5($_POST['old_password']) != $user->v_password || 
                 $_POST['password'] == '' || $_POST['repassword'] == '' || $_POST['password'] != $_POST['repassword']) {
                 flag_set('Change password failed, please check again.', 'failed');
-                redirect('edit_user_profile.php');
+                redirect();
             }
 
             $user->v_password = md5($_POST['password']);
 
             if ($user->reset_password()) {
                 flag_set('Change password successfully!');
-                redirect('edit_user_profile.php');
+                redirect();
             }
 
         }
@@ -28,7 +28,7 @@
 
             if (md5($_POST['current_password']) != $user->v_password) {
                 flag_set('Update user profile failed! Current password is wrong, please check again.', 'failed');
-                redirect('edit_user_profile.php');
+                redirect();
             }
 
             $user->v_fullname = $_POST['name'];
@@ -39,7 +39,7 @@
 
             if ($user->update()) {
                 flag_set('Update user profile successfully!');
-                redirect('edit_user_profile.php');
+                redirect();
             }
 
         }

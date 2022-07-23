@@ -11,7 +11,7 @@
             $subscriber->d_time_created = date('h:i:s',time());
             $subscriber->f_sub_status = 1;
             if ($subscriber->create()) {
-                redirect('index.php');
+                redirect();
             }
         }
     }

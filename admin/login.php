@@ -15,7 +15,7 @@
 
             if ($login_user_item['f_user_status'] == 0) {
                 flag_set('Login failed! This account is disabled. Please contact admin for more infomation.', 'failed');
-                redirect('login.php');
+                redirect();
             }
 
             $_SESSION['user_id'] = $login_user_item['n_user_id'];
@@ -24,7 +24,7 @@
             redirect('index.php');
         } else {
             flag_set('Login failed! Username or password is wrong!.', 'failed');
-            redirect('login.php');
+            redirect();
         }  
     }
     

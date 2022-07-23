@@ -16,7 +16,7 @@
 
             if ($user->reset_password()) {
                 flag_set('Reset password for user with id = ' . $_POST['user_id'] . ' successfully!');
-                redirect('blog_users.php');
+                redirect();
             }
 
         }
@@ -27,7 +27,7 @@
 
             if ($user->disable()) {
                 flag_set('Disable user with id = ' . $_POST['user_id'] . ' successfully!');
-                redirect('blog_users.php');
+                redirect();
             }
 
         }
@@ -38,7 +38,7 @@
 
             if ($user->enable()) {
                 flag_set('Enable user with id = ' . $_POST['user_id'] . ' successfully!');
-                redirect('blog_users.php');
+                redirect();
             }
 
         }

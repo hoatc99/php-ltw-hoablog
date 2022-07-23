@@ -31,7 +31,7 @@
                 $tag->v_tag = $_POST['blog_tags'];
                 $tag->create();
 
-                redirect('blogs.php');
+                redirect();
             }
         }
 
@@ -62,7 +62,7 @@
                 $tag->v_tag = $_POST['blog_tags'];
                 $tag->create();
 
-                redirect('blogs.php');
+                redirect();
             }
         }
 
@@ -90,7 +90,7 @@
             
             if ($blog->update()) {
                 flag_set('Upload blog successfully!');
-                redirect('blogs.php');
+                redirect();
             }
 
         }
@@ -99,7 +99,7 @@
             $blog->n_blog_post_id = $_POST['blog_id'];
             if ($blog->inactive()) {
                 flag_set('Inactive blog successfully!');
-                redirect('blogs.php');
+                redirect();
             }
 
         }
@@ -108,7 +108,7 @@
             $blog->n_blog_post_id = $_POST['blog_id'];
             if ($blog->active()) {
                 flag_set('Active blog successfully!');
-                redirect('blogs.php');
+                redirect();
             }
 
         }
@@ -121,7 +121,7 @@
             $blog->n_blog_post_id = $_POST['blog_id'];
             if ($blog->delete()) {
                 flag_set('Delete blog successfully!');
-                redirect('blogs.php');
+                redirect();
             }
 
         }

@@ -17,7 +17,7 @@
                 field_set('category_title', $_POST['category_title']);
                 field_set('category_meta_title', $_POST['category_meta_title']);
                 field_set('category_path', $_POST['category_path']);
-                redirect('blog_categories.php');
+                redirect();
             }
             $title = $_POST['category_title'];
             $metaTitle = $_POST['category_meta_title'];
@@ -32,7 +32,7 @@
             
             if ($category->create()) {
                 flag_set('Create category successfully!');
-                redirect('blog_categories.php');
+                redirect();
             }
 
         }
@@ -53,7 +53,7 @@
             
             if ($category->update()) {
                 flag_set('Edit category successfully!');
-                redirect('blog_categories.php');
+                redirect();
             }
 
         }
@@ -65,7 +65,7 @@
             $category->n_category_id = $id;
             if ($category->delete()) {
                 flag_set('Delete category successfully!');
-                redirect('blog_categories.php');
+                redirect();
             }
 
         }

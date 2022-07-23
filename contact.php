@@ -13,7 +13,7 @@
             $contact->d_time_created = date('h:i:s',time());
             $contact->f_contact_status = 1;
             if ($contact->create()) {
-                redirect('contact.php');
+                redirect();
             }
         }
     }

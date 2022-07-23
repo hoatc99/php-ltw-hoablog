@@ -22,7 +22,7 @@
             $comment->d_date_created = date('y-m-d',time());
             $comment->d_time_created = date('h:i:s',time());
             $comment->create();
-            redirect('read_blog.php?id=' . $_GET['id']);
+            redirect();
         }
 
         if (isset($_POST['submit_comment_reply'])) {
@@ -34,7 +34,7 @@
             $comment->d_date_created = date('y-m-d',time());
             $comment->d_time_created = date('h:i:s',time());
             $comment->create();
-            redirect('read_blog.php?id=' . $_GET['id']);
+            redirect();
         }
 
     }

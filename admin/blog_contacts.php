@@ -14,7 +14,7 @@
             $contact->n_contact_id = $_POST['contact_id'];
             if ($contact->delete()) {
                 flag_set('Delete contact successfully!');
-                redirect('blog_contacts.php');
+                redirect();
             }
 
         }

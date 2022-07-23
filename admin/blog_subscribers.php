@@ -14,7 +14,7 @@
             $subscriber->n_sub_id = $_POST['sub_id'];
             if ($subscriber->delete()) {
                 flag_set('Delete subscriber successfully!');
-                redirect('blog_subscribers.php');
+                redirect();
             }
 
         }
