@@ -1,5 +1,5 @@
 <?php  
-    include "admin/includes/include.php";
+    include 'admin/includes/include.php';
 
     if (empty($_GET['id'])) {
         redirect('blogs.php');

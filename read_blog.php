@@ -1,5 +1,5 @@
 <?php  
-    include "admin/includes/include.php";
+    include 'admin/includes/include.php';
 
     $blog->n_blog_post_id = $_GET['id'];
 

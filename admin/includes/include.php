@@ -2,7 +2,7 @@
 
     session_start();
 
-    include 'handler.php';
+    include_once 'handler.php';
 
     include 'dbc.php';
     include 'categories.php';
