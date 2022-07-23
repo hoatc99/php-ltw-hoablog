@@ -1,5 +1,5 @@
 <?php  
-    include_once 'includes/include.php';
+    include 'includes/include.php';
     session_destroy();
-    redirect('admin/login.php');
+    redirect('login.php');
 ?>

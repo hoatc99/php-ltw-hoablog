@@ -1,6 +1,6 @@
 <?php
 
-    include_once '../includes/include.php';
+    include '../includes/include.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql = "SELECT * FROM blog_user 

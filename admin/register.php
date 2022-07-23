@@ -1,8 +1,8 @@
 <?php  
-    include_once 'includes/include.php';
+    include 'includes/include.php';
     
     if (isset($_SESSION['user_id'])) {
-        redirect('admin/index.php');
+        redirect('index.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -15,7 +15,7 @@
         $user->d_time_created = date('h:i:s', time());
         if ($user->create()) {
             flag_set('Create account successfully! Please login.');
-            redirect('admin/login.php');
+            redirect('login.php');
         }
     }
     
@@ -26,8 +26,8 @@
 
 <head>
 
-    <?php include_once 'partials/meta.php'; ?>
-    <?php include_once 'partials/style.php'; ?>
+    <?php include 'partials/meta.php'; ?>
+    <?php include 'partials/style.php'; ?>
     <title>Register</title>
 
 </head>
@@ -79,7 +79,7 @@
 
     </div>
 
-    <?php include_once 'partials/script.php'; ?>
+    <?php include 'partials/script.php'; ?>
 
     <script>
         

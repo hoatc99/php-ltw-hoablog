@@ -1,5 +1,5 @@
 <?php
-    include_once 'admin/includes/include.php';
+    include 'admin/includes/include.php';
 
     $blog_list = $blog->read();
 
@@ -13,7 +13,7 @@
             $contact->d_time_created = date('h:i:s',time());
             $contact->f_contact_status = 1;
             if ($contact->create()) {
-                redirect();
+                redirect('contact.php');
             }
         }
     }
@@ -24,15 +24,15 @@
 
 <head>
 
-    <?php include_once 'partials/meta.php'; ?>
-    <?php include_once 'partials/style.php'; ?>
+    <?php include 'partials/meta.php'; ?>
+    <?php include 'partials/style.php'; ?>
     <title>HoaBlog - Liên hệ</title>
 
 </head>
 
 <body>
 
-    <?php include_once 'partials/navbar.php'; ?>
+    <?php include 'partials/navbar.php'; ?>
 
     <section class="hero-wrap hero-wrap-2" style="background-image: url('images/background/bg_1.jpg');"
         data-stellar-background-ratio="0.5">
@@ -112,9 +112,9 @@
         </div>
     </section>
 
-    <?php include_once 'partials/footer.php'; ?>
+    <?php include 'partials/footer.php'; ?>
 
-    <?php include_once 'partials/script.php'; ?>
+    <?php include 'partials/script.php'; ?>
     
 </body>
 

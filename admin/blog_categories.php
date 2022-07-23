@@ -1,10 +1,10 @@
 <?php
 
-    include_once 'includes/include.php';
+    include 'includes/include.php';
 
     if ($_SESSION['user_id'] != $admin_id) {
         flag_set('You don\'t have enough permission to reach category page', 'failed');
-        redirect('admin/index.php');
+        redirect('index.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -17,7 +17,7 @@
                 field_set('category_title', $_POST['category_title']);
                 field_set('category_meta_title', $_POST['category_meta_title']);
                 field_set('category_path', $_POST['category_path']);
-                redirect();
+                redirect('blog_categories.php');
             }
             $title = $_POST['category_title'];
             $metaTitle = $_POST['category_meta_title'];
@@ -32,7 +32,7 @@
             
             if ($category->create()) {
                 flag_set('Create category successfully!');
-                redirect();
+                redirect('blog_categories.php');
             }
 
         }
@@ -53,7 +53,7 @@
             
             if ($category->update()) {
                 flag_set('Edit category successfully!');
-                redirect();
+                redirect('blog_categories.php');
             }
 
         }
@@ -65,7 +65,7 @@
             $category->n_category_id = $id;
             if ($category->delete()) {
                 flag_set('Delete category successfully!');
-                redirect();
+                redirect('blog_categories.php');
             }
 
         }
@@ -79,8 +79,8 @@
 
 <head>
 
-    <?php include_once 'partials/meta.php'; ?>
-    <?php include_once 'partials/style.php'; ?>
+    <?php include 'partials/meta.php'; ?>
+    <?php include 'partials/style.php'; ?>
 
     <!-- Title Page-->
     <title>Blog Categories</title>
@@ -89,11 +89,11 @@
 
 <body class="animsition">
     <div class="page-wrapper">
-        <?php include_once 'partials/sidebar.php'; ?>
+        <?php include 'partials/sidebar.php'; ?>
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <?php include_once 'partials/header.php'; ?>
+            <?php include 'partials/header.php'; ?>
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
@@ -188,7 +188,7 @@
                                 <!-- END DATA TABLE-->
                             </div>
                         </div>
-                        <?php include_once 'partials/footer.php';?>
+                        <?php include 'partials/footer.php';?>
                     </div>
                 </div>
             </div>
@@ -270,7 +270,7 @@
 
     </div>
 
-    <?php include_once 'partials/script.php'; ?>
+    <?php include 'partials/script.php'; ?>
 
 </body>
 

@@ -1,10 +1,10 @@
 <?php
 
-    include_once 'includes/include.php';
+    include 'includes/include.php';
 
     if ($_SESSION['user_id'] != $admin_id) {
         flag_set('You don\'t have enough permission to reach subscriber page', 'failed');
-        redirect('admin/index.php');
+        redirect('index.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -14,7 +14,7 @@
             $subscriber->n_sub_id = $_POST['sub_id'];
             if ($subscriber->delete()) {
                 flag_set('Delete subscriber successfully!');
-                redirect();
+                redirect('blog_subscribers.php');
             }
 
         }
@@ -28,8 +28,8 @@
 
 <head>
 
-    <?php include_once 'partials/meta.php'; ?>
-    <?php include_once 'partials/style.php'; ?>
+    <?php include 'partials/meta.php'; ?>
+    <?php include 'partials/style.php'; ?>
 
     <!-- Title Page-->
     <title>Blog Subscribers</title>
@@ -38,11 +38,11 @@
 
 <body class="animsition">
     <div class="page-wrapper">
-        <?php include_once 'partials/sidebar.php'; ?>
+        <?php include 'partials/sidebar.php'; ?>
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <?php include_once 'partials/header.php'; ?>
+            <?php include 'partials/header.php'; ?>
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
@@ -101,7 +101,7 @@
                                 <!-- END DATA TABLE-->
                             </div>
                         </div>
-                        <?php include_once 'partials/footer.php';?>
+                        <?php include 'partials/footer.php';?>
                     </div>
                 </div>
             </div>
@@ -147,7 +147,7 @@
 
     </div>
 
-    <?php include_once 'partials/script.php'; ?>
+    <?php include 'partials/script.php'; ?>
 
 </body>
 

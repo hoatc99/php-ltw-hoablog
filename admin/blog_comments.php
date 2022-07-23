@@ -1,6 +1,6 @@
 <?php
 
-    include_once 'includes/include.php';
+    include 'includes/include.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -9,7 +9,7 @@
             $comment->n_blog_comment_id = $_POST['comment_id'];
             if ($comment->delete_comment()) {
                 flag_set('Delete comment successfully!');
-                redirect();
+                redirect('blog_comments.php');
             }
 
         }
@@ -19,7 +19,7 @@
             $comment->n_blog_comment_id = $_POST['reply_id'];
             if ($comment->delete_reply()) {
                 flag_set('Delete reply successfully!');
-                redirect();
+                redirect('blog_comments.php');
             }
 
         }
@@ -29,7 +29,7 @@
             $comment->n_blog_post_id = $_POST['blog_post_id'];
             if ($comment->delete_all_comments()) {
                 flag_set('Delete all comments of blog successfully!');
-                redirect();
+                redirect('blog_comments.php');
             }
 
         }
@@ -43,8 +43,8 @@
 
 <head>
 
-    <?php include_once 'partials/meta.php'; ?>
-    <?php include_once 'partials/style.php'; ?>
+    <?php include 'partials/meta.php'; ?>
+    <?php include 'partials/style.php'; ?>
 
     <!-- Title Page-->
     <title>Blog Comments</title>
@@ -53,11 +53,11 @@
 
 <body class="animsition">
     <div class="page-wrapper">
-        <?php include_once 'partials/sidebar.php'; ?>
+        <?php include 'partials/sidebar.php'; ?>
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <?php include_once 'partials/header.php'; ?>
+            <?php include 'partials/header.php'; ?>
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
@@ -133,7 +133,7 @@
                                 <!-- END DATA TABLE-->
                             </div>
                         </div>
-                        <?php include_once 'partials/footer.php';?>
+                        <?php include 'partials/footer.php';?>
                     </div>
                 </div>
             </div>
@@ -245,7 +245,7 @@
 
     </div>
 
-    <?php include_once 'partials/script.php'; ?>
+    <?php include 'partials/script.php'; ?>
 
 </body>
 

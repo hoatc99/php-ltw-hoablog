@@ -1,6 +1,6 @@
 <?php 
     if (!isset($_SESSION['user_id'])) {
-        redirect('admin/login.php');
+        redirect('login.php');
     }
 ?>
 

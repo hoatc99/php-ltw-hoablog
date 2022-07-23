@@ -1,6 +1,6 @@
 <?php
 
-    include_once 'includes/include.php';
+    include 'includes/include.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -31,7 +31,7 @@
                 $tag->v_tag = $_POST['blog_tags'];
                 $tag->create();
 
-                redirect();
+                redirect('blogs.php');
             }
         }
 
@@ -62,7 +62,7 @@
                 $tag->v_tag = $_POST['blog_tags'];
                 $tag->create();
 
-                redirect();
+                redirect('blogs.php');
             }
         }
 
@@ -90,7 +90,7 @@
             
             if ($blog->update()) {
                 flag_set('Upload blog successfully!');
-                redirect();
+                redirect('blogs.php');
             }
 
         }
@@ -99,7 +99,7 @@
             $blog->n_blog_post_id = $_POST['blog_id'];
             if ($blog->inactive()) {
                 flag_set('Inactive blog successfully!');
-                redirect();
+                redirect('blogs.php');
             }
 
         }
@@ -108,7 +108,7 @@
             $blog->n_blog_post_id = $_POST['blog_id'];
             if ($blog->active()) {
                 flag_set('Active blog successfully!');
-                redirect();
+                redirect('blogs.php');
             }
 
         }
@@ -121,7 +121,7 @@
             $blog->n_blog_post_id = $_POST['blog_id'];
             if ($blog->delete()) {
                 flag_set('Delete blog successfully!');
-                redirect();
+                redirect('blogs.php');
             }
 
         }
@@ -135,8 +135,8 @@
 
 <head>
 
-    <?php include_once 'partials/meta.php'; ?>
-    <?php include_once 'partials/style.php'; ?>
+    <?php include 'partials/meta.php'; ?>
+    <?php include 'partials/style.php'; ?>
 
     <!-- Title Page-->
     <title>Blogs</title>
@@ -145,11 +145,11 @@
 
 <body class="animsition">
     <div class="page-wrapper">
-        <?php include_once 'partials/sidebar.php'; ?>
+        <?php include 'partials/sidebar.php'; ?>
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <?php include_once 'partials/header.php'; ?>
+            <?php include 'partials/header.php'; ?>
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
@@ -230,7 +230,7 @@
                                 <!-- END DATA TABLE-->
                             </div>
                         </div>
-                        <?php include_once 'partials/footer.php';?>
+                        <?php include 'partials/footer.php';?>
                     </div>
                 </div>
             </div>
@@ -327,7 +327,7 @@
 
     </div>
 
-    <?php include_once 'partials/script.php'; ?>
+    <?php include 'partials/script.php'; ?>
 
 </body>
 

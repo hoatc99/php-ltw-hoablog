@@ -1,6 +1,6 @@
 <?php
 
-    include_once 'includes/include.php';
+    include 'includes/include.php';
 
     $user->n_user_id = $_SESSION['user_id'];
     $user->read_single();
@@ -12,14 +12,14 @@
             if (md5($_POST['old_password']) != $user->v_password || 
                 $_POST['password'] == '' || $_POST['repassword'] == '' || $_POST['password'] != $_POST['repassword']) {
                 flag_set('Change password failed, please check again.', 'failed');
-                redirect();
+                redirect('edit_user_profile.php');
             }
 
             $user->v_password = md5($_POST['password']);
 
             if ($user->reset_password()) {
                 flag_set('Change password successfully!');
-                redirect();
+                redirect('edit_user_profile.php');
             }
 
         }
@@ -28,7 +28,7 @@
 
             if (md5($_POST['current_password']) != $user->v_password) {
                 flag_set('Update user profile failed! Current password is wrong, please check again.', 'failed');
-                redirect();
+                redirect('edit_user_profile.php');
             }
 
             $user->v_fullname = $_POST['name'];
@@ -39,7 +39,7 @@
 
             if ($user->update()) {
                 flag_set('Update user profile successfully!');
-                redirect();
+                redirect('edit_user_profile.php');
             }
 
         }
@@ -53,8 +53,8 @@
 
 <head>
 
-    <?php include_once 'partials/meta.php'; ?>
-    <?php include_once 'partials/style.php'; ?>
+    <?php include 'partials/meta.php'; ?>
+    <?php include 'partials/style.php'; ?>
 
     <!-- Title Page-->
     <title>Edit User Profile</title>
@@ -63,11 +63,11 @@
 
 <body class="animsition">
     <div class="page-wrapper">
-        <?php include_once 'partials/sidebar.php'; ?>
+        <?php include 'partials/sidebar.php'; ?>
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <?php include_once 'partials/header.php'; ?>
+            <?php include 'partials/header.php'; ?>
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
@@ -161,7 +161,7 @@
                                 </div>
                             </div>
                         </div>
-                        <?php include_once 'partials/footer.php';?>
+                        <?php include 'partials/footer.php';?>
                     </div>
                 </div>
             </div>
@@ -171,7 +171,7 @@
 
     </div>
 
-    <?php include_once 'partials/script.php'; ?>
+    <?php include 'partials/script.php'; ?>
 
 </body>
 
