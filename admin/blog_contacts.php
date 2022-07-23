@@ -28,8 +28,8 @@
 
 <head>
 
-    <?php include 'partials/meta.php'; ?>
-    <?php include 'partials/style.php'; ?>
+    <?php include_once 'partials/meta.php'; ?>
+    <?php include_once 'partials/style.php'; ?>
 
     <!-- Title Page-->
     <title>Blog Contacts</title>
@@ -38,11 +38,11 @@
 
 <body class="animsition">
     <div class="page-wrapper">
-        <?php include 'partials/sidebar.php'; ?>
+        <?php include_once 'partials/sidebar.php'; ?>
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <?php include 'partials/header.php'; ?>
+            <?php include_once 'partials/header.php'; ?>
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
@@ -107,7 +107,7 @@
                                 <!-- END DATA TABLE-->
                             </div>
                         </div>
-                        <?php include 'partials/footer.php';?>
+                        <?php include_once 'partials/footer.php';?>
                     </div>
                 </div>
             </div>
@@ -153,7 +153,7 @@
 
     </div>
 
-    <?php include 'partials/script.php'; ?>
+    <?php include_once 'partials/script.php'; ?>
 
 </body>
 

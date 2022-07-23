@@ -35,8 +35,8 @@
 
 <head>
 
-    <?php include 'partials/meta.php'; ?>
-    <?php include 'partials/style.php'; ?>
+    <?php include_once 'partials/meta.php'; ?>
+    <?php include_once 'partials/style.php'; ?>
     <title>Login</title>
 
 </head>
@@ -83,7 +83,7 @@
 
     </div>
 
-    <?php include 'partials/script.php'; ?>
+    <?php include_once 'partials/script.php'; ?>
 
     <script>
 
