@@ -1,7 +1,5 @@
 <?php
 
-    session_start();
-
     function redirect($url = null) {
         if ($url == null) {
             header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);

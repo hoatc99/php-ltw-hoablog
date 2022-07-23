@@ -1,6 +1,6 @@
 <?php 
 
-    include_once 'handler.php';
+    session_start();
 
     include_once 'dbc.php';
     include_once 'categories.php';
@@ -10,6 +10,8 @@
     include_once 'subscribers.php';
     include_once 'users.php';
     include_once 'comments.php';
+
+    include_once 'handler.php';
 
     $admin_id = 1;
 
