@@ -9,7 +9,7 @@
         //     header('Location: ' . $url);
         // }
         header('Location: ' . $url);
-        exit;
+        exit();
     }
 
     function flag_get($flag_name = 'flag') {
