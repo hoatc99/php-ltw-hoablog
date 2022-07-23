@@ -1,13 +1,43 @@
 <?php
 
+    // function redirect($url = null) {
+    //     // $file_root = str_replace('\\', '/', __DIR__);
+    //     $http_root = '';
+    //     $http_root .= (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) ? $_SERVER['HTTP_X_FORWARDED_PROTO'] : 'http') . '://';
+    //     $http_root .= $_SERVER['HTTP_HOST'];
+    //     // $http_root .= str_replace($_SERVER['DOCUMENT_ROOT'], '', $file_root);
+
+    //     // echo $http_root;
+
+    //     if ($url == null) {
+    //         $http_root .= $_SERVER['REQUEST_URI'];
+    //     } else {
+    //         $http_root .= $url;
+    //     }
+
+    //     // $http_root .= $_SERVER['REQUEST_URI'];
+
+    //     header('Location: ' . $http_root);
+    //     exit;
+    // }
+
     function redirect($url = null) {
         if ($url == null) {
-            header('Location: http://' . $_SERVER['HTTP_X_FORWARDED_PROTO'] . $_SERVER['REQUEST_URI']);
+            header('Location: ' . $_SERVER['REQUEST_URI']);
         } else {
             header('Location: ' . $url);
         }
         exit;
     }
+
+    // function redirect($url = null) {
+    //     if ($url == null) {
+    //         header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+    //     } else {
+    //         header('Location: ' . $url);
+    //     }
+    //     exit;
+    // }
 
     function flag_get($flag_name = 'flag') {
         if (isset($_SESSION[$flag_name]) && !empty($_SESSION[$flag_name])) {
