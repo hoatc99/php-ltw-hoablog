@@ -1,7 +1,7 @@
 <?php  
     include_once 'admin/includes/include.php';
 
-    if (empty($_GET['id'])) {
+    if (!isset($_GET['id']) || empty($_GET['id'])) {
         redirect('blogs.php');
     }
 
