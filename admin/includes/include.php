@@ -4,14 +4,14 @@
 
     include_once 'handler.php';
 
-    include 'dbc.php';
-    include 'categories.php';
-    include 'blogs.php';
-    include 'tags.php';
-    include 'contacts.php';
-    include 'subscribers.php';
-    include 'users.php';
-    include 'comments.php';
+    include_once 'dbc.php';
+    include_once 'categories.php';
+    include_once 'blogs.php';
+    include_once 'tags.php';
+    include_once 'contacts.php';
+    include_once 'subscribers.php';
+    include_once 'users.php';
+    include_once 'comments.php';
 
     $admin_id = 1;
 
