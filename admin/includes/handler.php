@@ -2,7 +2,7 @@
 
     function redirect($url = null) {
         if ($url == null) {
-            header('Location: http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']);
+            header('Location: http://' . $_SERVER['HTTP_X_FORWARDED_PROTO'] . $_SERVER['REQUEST_URI']);
         } else {
             header('Location: ' . $url);
         }
