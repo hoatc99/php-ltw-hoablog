@@ -1,7 +1,5 @@
 <?php 
 
-    session_start();
-
     include_once 'handler.php';
 
     include_once 'dbc.php';
