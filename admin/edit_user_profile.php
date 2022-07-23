@@ -1,6 +1,6 @@
 <?php
 
-    include 'includes/include.php';
+    include_once 'includes/include.php';
 
     $user->n_user_id = $_SESSION['user_id'];
     $user->read_single();

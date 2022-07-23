@@ -1,5 +1,5 @@
 <?php  
-    include 'includes/include.php';
+    include_once 'includes/include.php';
     
     if (isset($_SESSION['user_id'])) {
         redirect('index.php');

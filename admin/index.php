@@ -1,6 +1,6 @@
 <?php
 
-    include 'includes/include.php';
+    include_once 'includes/include.php';
 
 ?>
 

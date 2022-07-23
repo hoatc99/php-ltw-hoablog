@@ -1,6 +1,6 @@
 <?php
 
-    include 'includes/include.php';
+    include_once 'includes/include.php';
 
     if ($_SESSION['user_id'] != $admin_id) {
         flag_set('You don\'t have enough permission to reach category page', 'failed');
