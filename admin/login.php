@@ -1,19 +1,11 @@
 <?php  
-    session_start();
-
-    include 'includes/dbc.php';
-    include 'includes/users.php';
-    include 'includes/handler.php';
+    include 'includes/include.php';
 
     if (isset($_SESSION['user_id'])) {
         redirect('index.php');
     }
-    
-    $database = new Database();
-    $db = $database->connect();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $user = new User($db);
         $user->v_username = $_POST['username'];
         $user->v_password = md5($_POST['password']);
         $login_user_list = $user->login();

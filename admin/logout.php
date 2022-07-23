@@ -1,5 +1,5 @@
 <?php  
-    session_start();
+    include 'includes/include.php';
     session_destroy();
-    header('location: login.php'); 
+    redirect('login.php');
 ?>
