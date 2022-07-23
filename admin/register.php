@@ -2,7 +2,7 @@
     include_once 'includes/include.php';
     
     if (isset($_SESSION['user_id'])) {
-        redirect('index.php');
+        redirect('admin/index.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -15,7 +15,7 @@
         $user->d_time_created = date('h:i:s', time());
         if ($user->create()) {
             flag_set('Create account successfully! Please login.');
-            redirect('login.php');
+            redirect('admin/login.php');
         }
     }
     

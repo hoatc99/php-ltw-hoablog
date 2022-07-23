@@ -5,7 +5,7 @@
     $blog->n_user_id = $_SESSION['user_id'];
 
     if ($blog->admin_read_deleted_blog()->rowCount() == 0) {
-        redirect('blogs.php');
+        redirect('admin/blogs.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

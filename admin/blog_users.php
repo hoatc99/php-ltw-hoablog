@@ -4,7 +4,7 @@
 
     if ($_SESSION['user_id'] != $admin_id) {
         flag_set('You don\'t have enough permission to reach user page', 'failed');
-        redirect('index.php');
+        redirect('admin/index.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

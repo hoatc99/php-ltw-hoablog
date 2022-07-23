@@ -2,7 +2,7 @@
     include_once 'includes/include.php';
 
     if (isset($_SESSION['user_id'])) {
-        redirect('index.php');
+        redirect('admin/index.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -21,7 +21,7 @@
             $_SESSION['user_id'] = $login_user_item['n_user_id'];
             file_put_contents('sum_of_visits.txt', (int)file_get_contents('sum_of_visits.txt') + 1);
             flag_set('Login successfully! Welcome to HoaBlog Admin page.');
-            redirect('index.php');
+            redirect('admin/index.php');
         } else {
             flag_set('Login failed! Username or password is wrong!.', 'failed');
             redirect();
