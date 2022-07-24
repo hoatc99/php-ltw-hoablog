@@ -94,9 +94,10 @@
                                                 $blog_list_count = $blog_list->rowCount();
                                                 if ($blog_list_count > 0):
                                                     while ($blog_item = $blog_list->fetch()):
+                                                        $comment->n_blog_post_id = $blog_item['n_blog_post_id'];
                                             ?>
                                             <?php
-                                                $comment_list = $comment->read_comment_reply_by_blog_id($blog_item['n_blog_post_id']);
+                                                $comment_list = $comment->read_comment_reply_by_blog_id();
                                                 $comment_list_count = $comment_list->rowCount();
                                             ?>
                                             <tr>

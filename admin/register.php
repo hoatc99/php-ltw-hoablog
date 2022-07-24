@@ -122,6 +122,7 @@
                 is_check_register = false;
             } else {
                 $('#password_message').text('');
+                $('#repassword_message').text('');
                 is_check_register = true;
             }
             toggle_submit_button();
@@ -133,7 +134,6 @@
             } else {
                 $('#btn_register').prop('disabled', true);
             }
-            console.log($('#btn_register').prop('disabled'));
         }
         
     </script>

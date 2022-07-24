@@ -97,6 +97,7 @@
                 $('#password_message').text('Please enter a password');
                 is_check_login = false;
             } else {
+                $('#username_message').text('');
                 $('#password_message').text('');
                 is_check_login = true;
             }

@@ -11,6 +11,7 @@
     include_once 'includes/users.php';
     include_once 'includes/comments.php';
     include_once 'includes/notifications.php';
+    include_once 'includes/likes.php';
 
     include_once 'includes/handler.php';
 
@@ -26,5 +27,6 @@
     $tag = new Tag($db);
     $user = new User($db);
     $notification = new Notification($db);
+    $like = new Like($db);
 
 ?>

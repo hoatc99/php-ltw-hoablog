@@ -27,6 +27,8 @@
         while($popular_blog_item = $popular_blog_list->fetch()): 
             $user->n_user_id = $popular_blog_item['n_user_id'];
             $user->read_single();
+            $like->n_blog_post_id = $popular_blog_item['n_blog_post_id'];
+            $comment->n_blog_post_id = $popular_blog_item['n_blog_post_id'];
     ?>
     <div class="block-21 mb-4 d-flex">
         <a class="blog-img mr-4"
@@ -42,6 +44,10 @@
                     <?php echo $user->v_fullname; ?></a></div>
                 <div><a href="#"><span class="icon-eye"></span>
                     <?php echo $popular_blog_item['n_blog_post_views']; ?></a></div>
+                <div><a href="#"><span class="icon-heart text-danger"></span>
+                    <?php echo $like->read()->rowCount(); ?></a></div>
+                <div><a href="#"><span class="icon-chat"></span>
+                    <?php echo $comment->read_comment_reply_by_blog_id()->rowCount(); ?></a></div>
             </div>
         </div>
     </div>

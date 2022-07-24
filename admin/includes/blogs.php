@@ -78,7 +78,7 @@
         }
 
         public function client_read_active_blog() {
-            $sql = "SELECT * FROM $this->table WHERE f_post_status = 1 ORDER BY n_blog_post_id DESC";
+            $sql = "SELECT * FROM $this->table WHERE f_post_status = 1 ORDER BY n_blog_post_id DESC LIMIT 12";
 
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
@@ -114,7 +114,7 @@
         }
 
         public function client_read_home_page_placement() {
-            $sql = "SELECT * FROM $this->table WHERE n_home_page_placement > 0 ORDER BY n_home_page_placement ASC LIMIT 3";
+            $sql = "SELECT * FROM $this->table WHERE n_home_page_placement > 0 AND f_post_status = 1 ORDER BY n_home_page_placement ASC LIMIT 3";
 
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
@@ -124,8 +124,10 @@
 
         public function client_read_active_blog_by_query($query) {
             $sql = "SELECT * FROM $this->table JOIN blog_tag ON $this->table.n_blog_post_id = blog_tag.n_blog_post_id
-                    WHERE f_post_status = 1 AND (v_post_title LIKE '%$query%' OR v_tag LIKE '%$query%') 
-                    ORDER BY $this->table.n_blog_post_id DESC";
+                    WHERE f_post_status = 1 AND (
+                        v_post_title LIKE '%$query%' OR v_post_summary LIKE '%$query%' 
+                        OR v_post_content LIKE '%$query%' OR v_tag LIKE '%$query%'
+                    ) ORDER BY $this->table.n_blog_post_id DESC";
 
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();

@@ -23,7 +23,7 @@
             $comment->d_time_created = date('h:i:s',time());
             if ($comment->create()) {
                 $notification->n_user_id = $blog->n_user_id;
-                $notification->v_message = "Someone has already comment to your blog.";
+                $notification->v_message = "Someone has already commented to your blog.";
                 $notification->d_date_created = date('y-m-d',time());
                 $notification->d_time_created = date('h:i:s',time());
                 if ($notification->create()) {
@@ -42,7 +42,24 @@
             $comment->d_time_created = date('h:i:s',time());
             if ($comment->create()) {
                 $notification->n_user_id = $blog->n_user_id;
-                $notification->v_message = "Someone has already reply comment to your blog.";
+                $notification->v_message = "Someone has already replied comment to your blog.";
+                $notification->d_date_created = date('y-m-d',time());
+                $notification->d_time_created = date('h:i:s',time());
+                if ($notification->create()) {
+                    redirect();
+                }
+            }
+        }
+
+        if (isset($_POST['btn_like_post'])) {
+            $like->n_blog_post_id = $_GET['id'];
+            $like->v_session_id = $_SESSION['client_id'];
+            $like->d_date_created = date('y-m-d',time());
+            $like->d_time_created = date('h:i:s',time());
+            
+            if ($like->create()) {
+                $notification->n_user_id = $blog->n_user_id;
+                $notification->v_message = "Someone has already liked blog.";
                 $notification->d_date_created = date('y-m-d',time());
                 $notification->d_time_created = date('h:i:s',time());
                 if ($notification->create()) {
@@ -78,7 +95,7 @@
                     <h1 class="mb-2 bread"><?php echo $blog->v_post_title; ?></h1>
                     <p class="breadcrumbs">
                         <span class="mr-2">
-                            <a href="index.php">Trang chủ 
+                            <a href="index.php">Trang chủ
                                 <i class="ion-ios-arrow-forward"></i>
                             </a>
                         </span> 
@@ -120,8 +137,31 @@
                         </div>
                     </div>
 
+                    <div class="single-blog-actions d-flex mb-5 row">
+                        <?php 
+                            $like->n_blog_post_id = $_GET['id'];
+                            $like->v_session_id = $_SESSION['client_id'];
+                            if ($like->check()->rowCount() == 0):
+                        ?>
+                        <form action="" method="post">
+                            <input type="hidden" name="id">
+                            <button type="submit" class="btn btn-primary" name="btn_like_post">
+                                <i class="icon-heart"></i> Thích bài viết này
+                            </button>
+                        </form>
+                        <?php else: ?>
+                            <button class="btn btn-primary" disabled>
+                                <i class="icon-heart"></i> Bạn đã thích bài viết này rồi
+                            </button>
+                        <?php endif; ?>
+                        <h3 class="ml-5 text-danger">
+                            <i class="icon-heart"></i>
+                            <?php echo $like->read()->rowCount(); ?>
+                        </h3>
+                    </div>
+
                     <div class="about-author d-flex p-4 bg-light row">
-                        <div class="bio mr-5 col-2">
+                        <div class="bio col-3">
                             <?php if (!empty($user->v_image)): ?>
                             <img src="images/avatars/<?php echo $user->v_image; ?>" alt="Image placeholder" class="img-fluid mb-4">
                             <?php else: ?>
@@ -232,6 +272,10 @@
                         <h3>Bài viết trước đó</h3>
                         <?php 
                                 while($previous_blog_item = $previous_blog_list->fetch()): 
+                                    $user->n_user_id = $previous_blog_item['n_user_id'];
+                                    $user->read_single();
+                                    $like->n_blog_post_id = $previous_blog_item['n_blog_post_id'];
+                                    $comment->n_blog_post_id = $previous_blog_item['n_blog_post_id'];
                         ?>
                         <div class="block-21 mb-4 d-flex">
                             <a class="blog-img mr-4"
@@ -243,9 +287,14 @@
                                 <div class="meta">
                                     <div><a href="#"><span class="icon-calendar"></span>
                                         <?php echo $previous_blog_item['d_date_created']; ?></a></div>
-                                    <div><a href="#"><span class="icon-person"></span> Dave Lewis</a></div>
+                                    <div><a href="#"><span class="icon-person"></span> 
+                                        <?php echo $user->v_fullname; ?></a></div>
                                     <div><a href="#"><span class="icon-eye"></span>
                                         <?php echo $previous_blog_item['n_blog_post_views']; ?></a></div>
+                                    <div><a href="#"><span class="icon-heart text-danger"></span>
+                                        <?php echo $like->read()->rowCount(); ?></a></div>
+                                    <div><a href="#"><span class="icon-chat"></span>
+                                        <?php echo $comment->read_comment_reply_by_blog_id()->rowCount(); ?></a></div>
                                 </div>
                             </div>
                         </div>
@@ -261,6 +310,10 @@
                         <h3>Bài viết kế tiếp</h3>
                         <?php 
                                 while($next_blog_item = $next_blog_list->fetch()): 
+                                    $user->n_user_id = $next_blog_item['n_user_id'];
+                                    $user->read_single();
+                                    $like->n_blog_post_id = $next_blog_item['n_blog_post_id'];
+                                    $comment->n_blog_post_id = $next_blog_item['n_blog_post_id'];
                         ?>
                         <div class="block-21 mb-4 d-flex">
                             <a class="blog-img mr-4"
@@ -272,9 +325,14 @@
                                 <div class="meta">
                                     <div><a href="#"><span class="icon-calendar"></span>
                                         <?php echo $next_blog_item['d_date_created']; ?></a></div>
-                                    <div><a href="#"><span class="icon-person"></span> Dave Lewis</a></div>
+                                    <div><a href="#"><span class="icon-person"></span> 
+                                        <?php echo $user->v_fullname; ?></a></div>
                                     <div><a href="#"><span class="icon-eye"></span>
                                         <?php echo $next_blog_item['n_blog_post_views']; ?></a></div>
+                                    <div><a href="#"><span class="icon-heart text-danger"></span>
+                                        <?php echo $like->read()->rowCount(); ?></a></div>
+                                    <div><a href="#"><span class="icon-chat"></span>
+                                        <?php echo $comment->read_comment_reply_by_blog_id()->rowCount(); ?></a></div>
                                 </div>
                             </div>
                         </div>

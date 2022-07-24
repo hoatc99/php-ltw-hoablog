@@ -42,11 +42,12 @@
             return $stmt;
         }
 
-        public function read_comment_reply_by_blog_id($blog_id) {
+        public function read_comment_reply_by_blog_id() {
             $sql = "SELECT * FROM $this->table 
-                    WHERE n_blog_post_id = $blog_id";
+                    WHERE n_blog_post_id = :blog_post_id";
 
             $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':blog_post_id',$this->n_blog_post_id);
             $stmt->execute();
 
             return $stmt;
