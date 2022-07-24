@@ -1,5 +1,5 @@
 <?php  
-    include_once 'admin/includes/include.php';
+    include_once 'admin/include.php';
 
     $blog_list = $blog->client_read_active_blog();
 ?>

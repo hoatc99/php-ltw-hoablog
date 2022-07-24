@@ -1,5 +1,5 @@
 <?php  
-    include_once 'admin/includes/include.php';
+    include_once 'admin/include.php';
 
     $query_blog_list = $blog->client_read_active_blog_by_query($_GET['q']);
 ?>

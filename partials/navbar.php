@@ -1,11 +1,11 @@
 <?php 
-    if (empty($_SESSION['client_id'])) {
+    if (!isset($_SESSION['client_id']) || empty($_SESSION['client_id'])) {
         $_SESSION['client_id'] = session_id();
         file_put_contents('admin/sum_of_visits.txt', (int)file_get_contents('admin/sum_of_visits.txt') + 1);
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if (isset($_POST['email']) != "") {
+        if (isset($_POST['submit_subscribe'])) {
             $subscriber->v_sub_email = $_POST['email'];
             $subscriber->d_date_created = date('y-m-d',time());
             $subscriber->d_time_created = date('h:i:s',time());

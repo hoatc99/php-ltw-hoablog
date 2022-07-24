@@ -1,5 +1,5 @@
 <?php  
-    include_once 'admin/includes/include.php';
+    include_once 'admin/include.php';
 
     if (!isset($_GET['page']) || empty($_GET['page'])) {
         header('Location: blogs.php?page=1');

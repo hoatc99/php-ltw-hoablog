@@ -42,7 +42,7 @@
                     <form action="" method="POST" class="subscribe-form" onsubmit="alert('Cảm ơn bạn đã gửi email cho chúng tôi.');">
                         <div class="form-group">
                             <input type="email" name="email" class="form-control mb-2 text-center" placeholder="Nhập địa chỉ email của bạn" required>
-                            <input type="submit" name="subscribe" value="Đăng ký" class="form-control submit px-3">
+                            <input type="submit" name="submit_subscribe" value="Đăng ký" class="form-control submit px-3">
                         </div>
                     </form>
                 </div>
