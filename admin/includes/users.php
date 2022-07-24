@@ -68,7 +68,7 @@
                       SET v_fullname = :fullname,
                           v_username = :username, 
                           v_password = :password,
-                          f_user_status = :user_status
+                          f_user_status = :user_status,
                           d_date_created = :date_created, 
                           d_time_created = :time_created";
 
@@ -200,7 +200,7 @@
             $query = "UPDATE $this->table
                       SET f_user_status = 1
                       WHERE n_user_id = :get_id";
-                      
+
             $stmt = $this->conn->prepare($query);
 
             $stmt->bindParam(':get_id', $this->n_user_id);

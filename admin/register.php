@@ -56,12 +56,12 @@
                                 <div class="form-group">
                                     <label>Password</label>
                                     <label id="password_message" class="message"></label>
-                                    <input class="au-input au-input--full" type="password" name="password" oninput="check_password(this.value, repassword.value);" placeholder="Password">
+                                    <input class="au-input au-input--full" type="password" name="password" oninput="check_register(this.value, repassword.value);" placeholder="Password">
                                 </div>
                                 <div class="form-group">
                                     <label>Retype Password</label>
                                     <label id="repassword_message" class="message"></label>
-                                    <input class="au-input au-input--full" type="password" name="repassword" oninput="check_password(password.value, this.value);" placeholder="Retype Password">
+                                    <input class="au-input au-input--full" type="password" name="repassword" oninput="check_register(password.value, this.value);" placeholder="Retype Password">
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-t-10 m-b-10" id="btn_register" type="submit" disabled>register</button>
                             </form>
@@ -84,7 +84,7 @@
     <script>
         
         is_check_username = false;
-        is_check_password = false;
+        is_check_register = false;
 
         const check_username = (username) => {
             if (username == '') {
@@ -98,6 +98,7 @@
                     data: { username: username }
                     })
                 .done((response) => {
+                    console.log(response);
                     if (response == "true") {
                         $('#username_message').text('This username has already been taken. Please choose another one.');
                         is_check_username = false;
@@ -107,28 +108,27 @@
                     }
                 });
             }
-            toggle_submit_button();
         }
 
-        const check_password = (password, repassword) => {
+        const check_register = (password, repassword) => {
             if (password == '') {
                 $('#password_message').text('Please enter a password');
-                is_check_password = false;
+                is_check_register = false;
             } else if (repassword == '') {
                 $('#re-password_message').text('Please re-enter a password');
-                is_check_password = false;
+                is_check_register = false;
             } else if (password != repassword) {
                 $('#password_message').text('Password is not match');
-                is_check_password = false;
+                is_check_register = false;
             } else {
                 $('#password_message').text('');
-                is_check_password = true;
+                is_check_register = true;
             }
             toggle_submit_button();
         }
 
         const toggle_submit_button = () => {
-            if (is_check_username && is_check_password) {
+            if (is_check_username && is_check_register) {
                 $('#btn_register').prop('disabled', false);
             } else {
                 $('#btn_register').prop('disabled', true);
