@@ -77,11 +77,7 @@
             $blog->v_post_content = $_POST['blog_content'];	
             $blog->v_main_image_url = upload_image('main_image', 'old_main_image');
             $blog->v_alt_image_url = upload_image('alt_image', 'old_alt_image');
-            $blog->n_blog_post_views = $_POST['post_view'];	
             $blog->n_home_page_placement = $opt;
-            $blog->f_post_status = $_POST['status'];
-            $blog->d_date_created = $_POST['date_created'];	
-            $blog->d_time_created = $_POST['time_created'];	
             $blog->d_date_updated = date('Y-m-d', time());
             $blog->d_time_updated = date('h:i:s', time());
             
@@ -94,6 +90,8 @@
 
         if (isset($_POST['inactive_blog'])) {
             $blog->n_blog_post_id = $_POST['blog_id'];
+            $blog->d_date_updated = date('Y-m-d', time());
+            $blog->d_time_updated = date('h:i:s', time());
             if ($blog->inactive()) {
                 flag_set('Inactive blog successfully!');
                 redirect();
@@ -103,6 +101,8 @@
 
         if (isset($_POST['active_blog'])) {
             $blog->n_blog_post_id = $_POST['blog_id'];
+            $blog->d_date_updated = date('Y-m-d', time());
+            $blog->d_time_updated = date('h:i:s', time());
             if ($blog->active()) {
                 flag_set('Active blog successfully!');
                 redirect();
@@ -111,9 +111,10 @@
         }
 
         if (isset($_POST['delete_blog'])) {
-            $tag = new Tag($db);
-            $tag->n_blog_post_id = $_POST['blog_id'];
-            $tag->delete();
+            $blog->n_blog_post_id = $_POST['blog_id'];
+            $blog->f_post_admin_deleted = ($_SESSION['user_id'] == $admin_id) ? 1 : 0;
+            $blog->d_date_updated = date('Y-m-d', time());
+            $blog->d_time_updated = date('h:i:s', time());
 
             $blog->n_blog_post_id = $_POST['blog_id'];
             if ($blog->delete()) {

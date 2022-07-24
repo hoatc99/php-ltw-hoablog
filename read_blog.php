@@ -3,6 +3,10 @@
 
     $blog->n_blog_post_id = $_GET['id'];
 
+    if ($blog->check_blog_exists()->rowCount() == 0) {
+        redirect('blogs.php');
+    }
+    
     $blog->read_single();
 
     if ($blog->f_post_status != 1) {

@@ -5,10 +5,12 @@
     if (isset($_GET['id'])) {
 
         $blog->n_blog_post_id = $_GET['id'];
+
         $blog->admin_read_single();
 
-        if ($blog->n_user_id != $_SESSION['user_id'] && $admin_id != $_SESSION['user_id']) {
-            flag_set('You don\'t have enough permission to access blog with id = ' . $blog->n_blog_post_id . '!', 'failed');
+        if ($blog->check_blog_exists()->rowCount() == 0 || 
+            ($blog->n_user_id != $_SESSION['user_id'] && $admin_id != $_SESSION['user_id'])) {
+            flag_set('Blog id = ' . $_GET['id'] . ' not found! Please check again', 'failed');
             redirect('blogs.php');
         }
 
@@ -137,10 +139,6 @@
                                                 </label>
                                             </div>
                                             <input type="hidden" name="blog_id" value="<?php echo $blog->n_blog_post_id; ?>">
-                                            <input type="hidden" name="date_created" value="<?php echo $blog->d_date_created; ?>">
-                                            <input type="hidden" name="time_created" value="<?php echo $blog->d_time_created; ?>">
-                                            <input type="hidden" name="post_view" value="<?php echo $blog->n_blog_post_views; ?>">
-                                            <input type="hidden" name="status" value="<?php echo $blog->f_post_status; ?>">
                                             <button type="submit" class="btn btn-warning" name="update_blog">
                                                 <i class="fa fa-check"></i> OK</button>
                                             <button type="button" class="btn btn-secondary" onclick="location.href='blogs.php'">

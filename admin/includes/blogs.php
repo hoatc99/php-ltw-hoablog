@@ -18,6 +18,7 @@
         public $n_blog_post_views;	
         public $n_home_page_placement;	
         public $f_post_status;
+        public $f_post_admin_deleted;
         public $d_date_created;	
         public $d_time_created;	
         public $d_date_updated;	
@@ -57,7 +58,7 @@
                 $sql = "SELECT * FROM $this->table WHERE f_post_status = 2";
                 $stmt = $this->conn->prepare($sql);
             } else {
-                $sql = "SELECT * FROM $this->table WHERE f_post_status = 2 AND n_user_id = :user_id";
+                $sql = "SELECT * FROM $this->table WHERE f_post_status = 2 AND n_user_id = :user_id AND f_post_admin_deleted = 0";
                 $stmt = $this->conn->prepare($sql);
                 $stmt->bindParam(':user_id', $this->n_user_id);
             }
@@ -161,8 +162,19 @@
             return $stmt;
         }
 
+        public function check_blog_exists() {
+            $sql = "SELECT * FROM $this->table
+                    WHERE n_blog_post_id = :blog_post_id";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(":blog_post_id", $this->n_blog_post_id);
+            $stmt->execute();
+
+            return $stmt;
+        }
+
         public function admin_read_single() {
-            $sql = "SELECT * FROM $this->table WHERE n_blog_post_id = :get_id";
+            $sql = "SELECT * FROM $this->table WHERE n_blog_post_id = :get_id AND f_post_status != 2";
 
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':get_id', $this->n_blog_post_id);
@@ -183,6 +195,7 @@
             $this->n_blog_post_views = $row['n_blog_post_views'];	
             $this->n_home_page_placement = $row['n_home_page_placement'];	
             $this->f_post_status = $row['f_post_status'];
+            $this->f_post_admin_deleted = $row['f_post_admin_deleted'];
             $this->d_date_created = $row['d_date_created'];	
             $this->d_time_created = $row['d_time_created'];	
             $this->d_date_updated = $row['d_date_updated'];	
@@ -211,6 +224,7 @@
             $this->n_blog_post_views = $row['n_blog_post_views'];	
             $this->n_home_page_placement = $row['n_home_page_placement'];	
             $this->f_post_status = $row['f_post_status'];
+            $this->f_post_admin_deleted = $row['f_post_admin_deleted'];
             $this->d_date_created = $row['d_date_created'];	
             $this->d_time_created = $row['d_time_created'];	
             $this->d_date_updated = $row['d_date_updated'];	
@@ -249,6 +263,7 @@
                           n_blog_post_views = :blog_post_views,
                           n_home_page_placement = :home_page_placement,
                           f_post_status = :post_status,
+                          f_post_admin_deleted = 0,
                           d_date_created = :date_created,
                           d_time_created = :time_created";
 
@@ -346,14 +361,18 @@
 
         public function delete() {
             $query = "UPDATE $this->table
-                      SET f_post_status = 2 
+                      SET f_post_admin_deleted = :post_admin_deleted,
+                          f_post_status = 2,
+                          d_date_updated = :date_updated,
+                          d_time_updated = :time_updated
                       WHERE n_blog_post_id = :get_id";
 
             $stmt = $this->conn->prepare($query);
 
-            $this->n_blog_post_id = htmlspecialchars(strip_tags($this->n_blog_post_id));
-
             $stmt->bindParam(':get_id', $this->n_blog_post_id);
+            $stmt->bindParam(':post_admin_deleted', $this->f_post_admin_deleted);
+            $stmt->bindParam(':date_updated', $this->d_date_updated);
+            $stmt->bindParam(':time_updated', $this->d_time_updated);
 
             if ($stmt->execute()) {
                 return true;
@@ -365,14 +384,16 @@
 
         public function inactive() {
             $query = "UPDATE $this->table
-                      SET f_post_status = 0
+                      SET f_post_status = 0,
+                          d_date_updated = :date_updated,
+                          d_time_updated = :time_updated
                       WHERE n_blog_post_id = :get_id";
 
             $stmt = $this->conn->prepare($query);
 
-            $this->n_blog_post_id = htmlspecialchars(strip_tags($this->n_blog_post_id));
-
             $stmt->bindParam(':get_id', $this->n_blog_post_id);
+            $stmt->bindParam(':date_updated', $this->d_date_updated);
+            $stmt->bindParam(':time_updated', $this->d_time_updated);
 
             if ($stmt->execute()) {
                 return true;
@@ -384,14 +405,16 @@
 
         public function active() {
             $query = "UPDATE $this->table
-                      SET f_post_status = 1 
+                      SET f_post_status = 1,
+                          d_date_updated = :date_updated,
+                          d_time_updated = :time_updated
                       WHERE n_blog_post_id = :get_id";
 
             $stmt = $this->conn->prepare($query);
 
-            $this->n_blog_post_id = htmlspecialchars(strip_tags($this->n_blog_post_id));
-
             $stmt->bindParam(':get_id', $this->n_blog_post_id);
+            $stmt->bindParam(':date_updated', $this->d_date_updated);
+            $stmt->bindParam(':time_updated', $this->d_time_updated);
 
             if ($stmt->execute()) {
                 return true;
