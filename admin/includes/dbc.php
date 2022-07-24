@@ -2,10 +2,10 @@
 
     class Database {
 
-        private $dsn = "byt3adjecddqfpnhuj91-mysql.services.clever-cloud.com";
-        private $dbname = "byt3adjecddqfpnhuj91";
-        private $username = "ukjs091upjezxrbf";
-        private $password = "cXiAVmralrRtrA6i4IdE";
+        private $dsn = "bipu0jgy8k8ksufom6mv-mysql.services.clever-cloud.com";
+        private $dbname = "bipu0jgy8k8ksufom6mv";
+        private $username = "uewqhocfweczx3zk";
+        private $password = "xaw0CPlTr6qgCZeUTdz5";
         private $conn = null;
 
         public function connect() {
