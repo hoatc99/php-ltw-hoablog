@@ -10,6 +10,7 @@
     include_once 'includes/subscribers.php';
     include_once 'includes/users.php';
     include_once 'includes/comments.php';
+    include_once 'includes/notifications.php';
 
     include_once 'includes/handler.php';
 
@@ -24,5 +25,6 @@
     $comment = new Comment($db);
     $tag = new Tag($db);
     $user = new User($db);
+    $notification = new Notification($db);
 
 ?>

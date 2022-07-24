@@ -23,7 +23,6 @@
             $metaTitle = $_POST['category_meta_title'];
             $path = $_POST['category_path'];
 
-            // Bind Params
             $category->v_category_title = $title;
             $category->v_category_meta_title = $metaTitle;
             $category->v_category_path = $path;
@@ -43,7 +42,6 @@
             $path = $_POST['category_path'];
             $id = $_POST['category_id'];
 
-            // Bind Params
             $category->n_category_id = $id;
             $category->v_category_title = $title;
             $category->v_category_meta_title = $metaTitle;
@@ -61,7 +59,6 @@
         if ($_POST['form_name'] == 'delete_category') {
             $id = $_POST['category_id'];
 
-            // Bind Params
             $category->n_category_id = $id;
             if ($category->delete()) {
                 flag_set('Delete category successfully!');

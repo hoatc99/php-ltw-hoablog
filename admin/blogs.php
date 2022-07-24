@@ -25,7 +25,6 @@
             if ($blog->create()) {
                 flag_set('Create blog successfully!');
                 
-                // Write blog tag
                 $tag = new Tag($db);
                 $tag->n_blog_post_id = $blog->last_id();
                 $tag->v_tag = $_POST['blog_tags'];
@@ -56,7 +55,6 @@
             if ($blog->create()) {
                 flag_set('Create blog successfully!');
                 
-                // Write blog tag
                 $tag = new Tag($db);
                 $tag->n_blog_post_id = $blog->last_id();
                 $tag->v_tag = $_POST['blog_tags'];
@@ -70,7 +68,6 @@
 
             $opt = (!empty($_POST['opt_place'])) ? $_POST['opt_place'] : 0;
 
-            // Params
             $blog->n_blog_post_id = $_POST['blog_id'];	
             $blog->n_category_id = $_POST['select_category'];
             $blog->v_post_title = $_POST['title'];	

@@ -61,6 +61,9 @@
                         <button type="submit" class="search-submit"><span class="icon-search"></span></button>
                     </form>
                 </li>
+                <li class="nav-item">
+                    <button type="button" id="btn-be-author" onclick="window.open('admin/login.php', '_blank');" class="btn btn-primary btn-sm">Trở thành tác giả</button>
+                </li>
             </ul>
         </div>
     </div>

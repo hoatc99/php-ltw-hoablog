@@ -13951,3 +13951,11 @@ textarea.form-control {
     background: transparent;
     border: none;
 }
+
+#btn-be-author {
+    margin: 20px 20px;
+}
+
+.ftco-navbar-light.scrolled #btn-be-author {
+    margin: 10px 20px;
+}

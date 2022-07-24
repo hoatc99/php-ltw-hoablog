@@ -99,7 +99,7 @@
                                     <li><a href="blogs.php?page=<?php echo $current_page; ?>">&lt;</a></li>
                                     <?php endif; ?>
                                     <?php for($i = 0; $i < $total_page; $i++): ?>
-                                    <li><a href="blogs.php?page=<?php echo $i+1; ?>"><?php echo $i+1; ?></a></li>
+                                    <li id="page<?php echo $i+1 ?>"><a href="blogs.php?page=<?php echo $i+1; ?>"><?php echo $i+1; ?></a></li>
                                     <?php endfor; ?>
                                     <?php if ($current_page < $total_page - 1): ?>
                                     <li><a href="blogs.php?page=<?php echo $current_page+2; ?>">&gt;</a></li>
@@ -121,6 +121,10 @@
     <?php include_once 'partials/footer.php'; ?>
 
     <?php include_once 'partials/script.php'; ?>
+
+    <script>
+        $('#page<?php echo $_GET['page'] ?>').addClass('active');
+    </script>
 
 </body>
 

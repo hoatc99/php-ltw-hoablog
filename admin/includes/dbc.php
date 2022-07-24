@@ -2,14 +2,12 @@
 
     class Database {
 
-        // DB Params
         private $dsn = "byt3adjecddqfpnhuj91-mysql.services.clever-cloud.com";
         private $dbname = "byt3adjecddqfpnhuj91";
         private $username = "ukjs091upjezxrbf";
         private $password = "cXiAVmralrRtrA6i4IdE";
         private $conn = null;
 
-        // DB Connect
         public function connect() {
             $this->conn = null;
             try {

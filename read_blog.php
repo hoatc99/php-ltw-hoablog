@@ -21,8 +21,15 @@
             $comment->v_comment = $_POST['c_message'];
             $comment->d_date_created = date('y-m-d',time());
             $comment->d_time_created = date('h:i:s',time());
-            $comment->create();
-            redirect();
+            if ($comment->create()) {
+                $notification->n_user_id = $blog->n_user_id;
+                $notification->v_message = "Someone has already comment to your blog.";
+                $notification->d_date_created = date('y-m-d',time());
+                $notification->d_time_created = date('h:i:s',time());
+                if ($notification->create()) {
+                    redirect();
+                }
+            }
         }
 
         if (isset($_POST['submit_comment_reply'])) {
@@ -33,8 +40,15 @@
             $comment->v_comment = $_POST['c_message_reply'];
             $comment->d_date_created = date('y-m-d',time());
             $comment->d_time_created = date('h:i:s',time());
-            $comment->create();
-            redirect();
+            if ($comment->create()) {
+                $notification->n_user_id = $blog->n_user_id;
+                $notification->v_message = "Someone has already reply comment to your blog.";
+                $notification->d_date_created = date('y-m-d',time());
+                $notification->d_time_created = date('h:i:s',time());
+                if ($notification->create()) {
+                    redirect();
+                }
+            }
         }
 
     }
