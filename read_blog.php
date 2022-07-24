@@ -6,9 +6,7 @@
     $blog->read_single();
 
     if ($blog->f_post_status != 1) {
-        header('Location: blogs.php');
-        exit();
-        // redirect('blogs.php');
+        redirect('blogs.php');
     }
     
     $user->n_user_id = $blog->n_user_id;
@@ -24,9 +22,7 @@
             $comment->d_date_created = date('y-m-d',time());
             $comment->d_time_created = date('h:i:s',time());
             $comment->create();
-            header('Location: read_blog.php?id=' . $blog->n_blog_post_id);
-            exit();
-            // redirect();
+            redirect();
         }
 
         if (isset($_POST['submit_comment_reply'])) {
@@ -38,9 +34,7 @@
             $comment->d_date_created = date('y-m-d',time());
             $comment->d_time_created = date('h:i:s',time());
             $comment->create();
-            header('Location: read_blog.php?id=' . $blog->n_blog_post_id);
-            exit();
-            // redirect();
+            redirect();
         }
 
     }

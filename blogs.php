@@ -2,9 +2,7 @@
     include_once 'admin/include.php';
 
     if (!isset($_GET['page']) || empty($_GET['page'])) {
-        header('Location: blogs.php?page=1');
-        exit();
-        // redirect('blogs.php?page=1');
+        redirect('blogs.php?page=1');
     }
     $offset = 6;
     $total_page = ceil($blog->client_read_active_blog()->rowCount() / $offset);

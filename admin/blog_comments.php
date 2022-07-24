@@ -9,9 +9,7 @@
             $comment->n_blog_comment_id = $_POST['comment_id'];
             if ($comment->delete_comment()) {
                 flag_set('Delete comment successfully!');
-                header('Location: blog_comments.php');
-                exit();
-                // redirect();
+                redirect();
             }
 
         }
@@ -21,9 +19,7 @@
             $comment->n_blog_comment_id = $_POST['reply_id'];
             if ($comment->delete_reply()) {
                 flag_set('Delete reply successfully!');
-                header('Location: blog_comments.php');
-                exit();
-                // redirect();
+                redirect();
             }
 
         }
@@ -33,9 +29,7 @@
             $comment->n_blog_post_id = $_POST['blog_post_id'];
             if ($comment->delete_all_comments()) {
                 flag_set('Delete all comments of blog successfully!');
-                header('Location: blog_comments.php');
-                exit();
-                // redirect();
+                redirect();
             }
 
         }

@@ -5,9 +5,7 @@
     $blog->n_user_id = $_SESSION['user_id'];
 
     if ($blog->admin_read_deleted_blog()->rowCount() == 0) {
-        header('Location: blogs.php');
-        exit();
-        // redirect('blogs.php');
+        redirect('blogs.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -16,9 +14,7 @@
             $blog->n_blog_post_id = $_POST['blog_id'];
             if ($blog->inactive()) {
                 flag_set('Restore blog to inactive successfully!');
-                header('Location: deleted_blogs.php');
-                exit();
-                // redirect();
+                redirect();
             }
 
         }
@@ -27,9 +23,7 @@
             $blog->n_blog_post_id = $_POST['blog_id'];
             if ($blog->active()) {
                 flag_set('Restore blog to active blog successfully!');
-                header('Location: deleted_blogs.php');
-                exit();
-                // redirect();
+                redirect();
             }
 
         }

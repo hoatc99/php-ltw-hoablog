@@ -4,9 +4,7 @@
 
     if ($_SESSION['user_id'] != $admin_id) {
         flag_set('You don\'t have enough permission to reach contact page', 'failed');
-        header('Location: index.php');
-        exit();
-        // redirect('index.php');
+        redirect('index.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -16,9 +14,7 @@
             $contact->n_contact_id = $_POST['contact_id'];
             if ($contact->delete()) {
                 flag_set('Delete contact successfully!');
-                header('Location: blog_contacts.php');
-                exit();
-                // redirect();
+                redirect();
             }
 
         }
