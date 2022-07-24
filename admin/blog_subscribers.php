@@ -4,7 +4,9 @@
 
     if ($_SESSION['user_id'] != $admin_id) {
         flag_set('You don\'t have enough permission to reach subscriber page', 'failed');
-        redirect('index.php');
+        header('Location: index.php');
+        exit();
+        // redirect('index.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -14,7 +16,9 @@
             $subscriber->n_sub_id = $_POST['sub_id'];
             if ($subscriber->delete()) {
                 flag_set('Delete subscriber successfully!');
-                redirect();
+                header('Location: blog_subscribers.php');
+                exit();
+                // redirect();
             }
 
         }

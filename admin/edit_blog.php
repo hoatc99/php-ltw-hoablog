@@ -9,7 +9,9 @@
 
         if ($blog->n_user_id != $_SESSION['user_id'] && $admin_id != $_SESSION['user_id']) {
             flag_set('You don\'t have enough permission to access blog with id = ' . $blog->n_blog_post_id . '!', 'failed');
-            redirect('blogs.php');
+            header('Location: blogs.php');
+            exit();
+            // redirect('blogs.php');
         }
 
     }

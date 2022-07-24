@@ -4,7 +4,9 @@
 
     if ($_SESSION['user_id'] != $admin_id) {
         flag_set('You don\'t have enough permission to reach category page', 'failed');
-        redirect('index.php');
+        header('Location: index.php');
+        exit();
+        // redirect('index.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -17,7 +19,9 @@
                 field_set('category_title', $_POST['category_title']);
                 field_set('category_meta_title', $_POST['category_meta_title']);
                 field_set('category_path', $_POST['category_path']);
-                redirect();
+                header('Location: blog_categories.php');
+                exit();
+                // redirect();
             }
             $title = $_POST['category_title'];
             $metaTitle = $_POST['category_meta_title'];
@@ -32,7 +36,9 @@
             
             if ($category->create()) {
                 flag_set('Create category successfully!');
-                redirect();
+                header('Location: blog_categories.php');
+                exit();
+                // redirect();
             }
 
         }
@@ -53,7 +59,9 @@
             
             if ($category->update()) {
                 flag_set('Edit category successfully!');
-                redirect();
+                header('Location: blog_categories.php');
+                exit();
+                // redirect();
             }
 
         }
@@ -65,7 +73,9 @@
             $category->n_category_id = $id;
             if ($category->delete()) {
                 flag_set('Delete category successfully!');
-                redirect();
+                header('Location: blog_categories.php');
+                exit();
+                // redirect();
             }
 
         }

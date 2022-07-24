@@ -4,7 +4,9 @@
 
     if ($_SESSION['user_id'] != $admin_id) {
         flag_set('You don\'t have enough permission to reach user page', 'failed');
-        redirect('index.php');
+        header('Location: index.php');
+        exit();
+        // redirect('index.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -16,7 +18,9 @@
 
             if ($user->reset_password()) {
                 flag_set('Reset password for user with id = ' . $_POST['user_id'] . ' successfully!');
-                redirect();
+                header('Location: blog_users.php');
+                exit();
+                // redirect();
             }
 
         }
@@ -27,7 +31,9 @@
 
             if ($user->disable()) {
                 flag_set('Disable user with id = ' . $_POST['user_id'] . ' successfully!');
-                redirect();
+                header('Location: blog_users.php');
+                exit();
+                // redirect();
             }
 
         }
@@ -38,7 +44,9 @@
 
             if ($user->enable()) {
                 flag_set('Enable user with id = ' . $_POST['user_id'] . ' successfully!');
-                redirect();
+                header('Location: blog_users.php');
+                exit();
+                // redirect();
             }
 
         }

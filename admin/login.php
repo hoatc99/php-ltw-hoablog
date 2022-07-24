@@ -2,7 +2,9 @@
     include_once 'includes/include.php';
 
     if (isset($_SESSION['user_id'])) {
-        redirect('index.php');
+        header('Location: index.php');
+        exit();
+        // redirect('index.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -15,16 +17,22 @@
 
             if ($login_user_item['f_user_status'] == 0) {
                 flag_set('Login failed! This account is disabled. Please contact admin for more infomation.', 'failed');
-                redirect();
+                header('Location: login.php');
+                exit();
+                // redirect();
             }
 
             $_SESSION['user_id'] = $login_user_item['n_user_id'];
             file_put_contents('sum_of_visits.txt', (int)file_get_contents('sum_of_visits.txt') + 1);
             flag_set('Login successfully! Welcome to HoaBlog Admin page.');
-            redirect('index.php');
+            header('Location: index.php');
+            exit();
+            // redirect('index.php');
         } else {
             flag_set('Login failed! Username or password is wrong!.', 'failed');
-            redirect();
+            header('Location: login.php');
+            exit();
+            // redirect();
         }  
     }
     

@@ -2,7 +2,9 @@
     include_once 'admin/includes/include.php';
 
     if (!isset($_GET['id']) || empty($_GET['id'])) {
-        redirect('blogs.php');
+        header('Location: blogs.php');
+        exit();
+        // redirect('blogs.php');
     }
 
     $blog->n_category_id = $_GET['id'];
