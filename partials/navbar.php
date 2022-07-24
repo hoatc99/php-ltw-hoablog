@@ -53,7 +53,7 @@
                     </ul>
                 </li>
                 <li class="nav-item"><a href="blogs.php" class="nav-link">Bài viết</a></li>
-                <li class="nav-item"><a href="about.php" class="nav-link">Về chúng tôi</a></li>
+                <li class="nav-item"><a href="about.php" class="nav-link">Giới thiệu</a></li>
                 <li class="nav-item"><a href="contact.php" class="nav-link">Liên hệ</a></li>
                 <li class="nav-item">
                     <form action="search.php" id="search-form" method="get">

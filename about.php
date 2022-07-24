@@ -13,7 +13,7 @@
     
     <?php include_once 'partials/meta.php'; ?>
     <?php include_once 'partials/style.php'; ?>
-    <title>HoaBlog - Về chúng tôi</title>
+    <title>HoaBlog - Giới thiệu</title>
     
 </head>
 
@@ -35,7 +35,7 @@
                                 <i class="ion-ios-arrow-forward"></i>
                             </a>
                         </span> 
-                        <span>Về chúng tôi 
+                        <span>Giới thiệu 
                             <i class="ion-ios-arrow-forward"></i>
                         </span>
                     </p>
@@ -53,7 +53,7 @@
                     <div class="heading-section mb-5 pl-md-5">
                         <div class="pl-md-5 ml-md-5">
                             <span class="subheading subheading-with-line"><small
-                                    class="pr-2 bg-white">Về chúng tôi</small></span>
+                                    class="pr-2 bg-white">Giới thiệu</small></span>
                             <h2 class="mb-4">Trần Cẩm Hòa</h2>
                         </div>
                     </div>

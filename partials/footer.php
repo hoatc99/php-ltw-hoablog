@@ -18,7 +18,7 @@
                     <ul class="list-unstyled">
                         <li><a href="index.php"><span class="icon-long-arrow-right mr-2"></span>Trang chủ</a></li>
                         <li><a href="blogs.php"><span class="icon-long-arrow-right mr-2"></span>Bài viết</a></li>
-                        <li><a href="about.php"><span class="icon-long-arrow-right mr-2"></span>Về chúng tôi</a></li>
+                        <li><a href="about.php"><span class="icon-long-arrow-right mr-2"></span>Giới thiệu</a></li>
                         <li><a href="contact.php"><span class="icon-long-arrow-right mr-2"></span>Liên hệ</a></li>
                     </ul>
                 </div>
