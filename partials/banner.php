@@ -15,7 +15,6 @@
                     data-scrollax=" properties: { translateY: '70%' }">
                     <div class="text">
                         <h1 class="mb-4"><?php echo $banner_item['v_post_title'] ?></h1>
-                        <p><?php echo $banner_item['v_post_summary'] ?></p>
                         <p><a href="read_blog.php?id=<?php echo $banner_item['n_blog_post_id']?>" class="btn btn-primary px-4 py-3 mt-3">Xem bài viết</a></p>
                     </div>
                 </div>

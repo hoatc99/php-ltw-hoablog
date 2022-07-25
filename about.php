@@ -4,6 +4,9 @@
     $blog_list = $blog->read();
 
     $contact_list = $contact->client_read();
+
+    $user->n_user_id = $admin_id;
+    $user->read_single();
 ?>
 
 <!DOCTYPE html>
@@ -47,28 +50,29 @@
     <section class="ftco-section">
         <div class="container">
             <div class="row no-gutters">
-                <div class="col-md-5 p-md-5 img img-2" style="background-image: url(images/avatars/IMG_1090_square.jpg);">
+                <div class="col-md-5 p-md-5 img img-2" style="background-image: url(images/avatars/<?php echo $v_image_url; ?>);">
                 </div>
                 <div class="col-md-7 wrap-about pb-md-5 ftco-animate">
                     <div class="heading-section mb-5 pl-md-5">
                         <div class="pl-md-5 ml-md-5">
                             <span class="subheading subheading-with-line"><small
                                     class="pr-2 bg-white">Giới thiệu</small></span>
-                            <h2 class="mb-4">Trần Cẩm Hòa</h2>
+                            <h2 class="mb-4">HoaBlog</h2>
                         </div>
                     </div>
                     <div class="pl-md-5 ml-md-5 mb-5">
                         <div class="row">
-                            <div class="col-md-3"><h5>Ngành nghề</h5></div>
-                            <div class="col-md-3"><h5>Số điện thoại</h5></div>
-                            <div class="col-md-3"><h5>Email</h5></div>
-                            <div class="col-md-3"><h5>Đơn vị công tác</h5></div>
+                            <div class="col-md-4"><h5>Họ và tên</h5></div>
+                            <div class="col-md-4"><h5>Số điện thoại</h5></div>
+                            <div class="col-md-4"><h5>Email</h5></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-3">Lập trình viên</div>
-                            <div class="col-md-3">0908834610</div>
-                            <div class="col-md-3">hoact.it@gmail.com</div>
-                            <div class="col-md-3">Trường Cao đẳng Kinh tế TP.HCM (HCE)</div>
+                            <div class="col-md-4"><?php echo $user->v_fullname; ?></div>
+                            <div class="col-md-4"><?php echo $user->v_phone; ?></div>
+                            <div class="col-md-4"><?php echo $user->v_email; ?></div>
+                        </div>
+                        <div class="row pt-5">
+                            <div class="col"><?php echo htmlspecialchars_decode($user->v_message); ?></p></div>
                         </div>
                     </div>
                 </div>

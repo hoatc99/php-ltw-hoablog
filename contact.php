@@ -17,6 +17,9 @@
             }
         }
     }
+
+    $user->n_user_id = $admin_id;
+    $user->read_single();
 ?>
 
 <!DOCTYPE html>
@@ -63,20 +66,20 @@
                 </div>
                 <div class="w-100"></div>
                 <div class="col-md-3">
-                    <b>Địa chỉ:</b>
-                    <p>171B Hoàng Hoa Thám, Phường 13, Quận Tân Bình, Thành phố Hồ Chí Minh</p>
+                    <b>Họ và tên:</b>
+                    <p><?php echo $user->v_fullname; ?></p>
                 </div>
                 <div class="col-md-3">
                     <b>Số điện thoại:</b>
-                    <p><a href="tel://02837256347">028 3725 6347</a></p>
+                    <p><a href="tel://<?php echo $user->v_phone; ?>"><?php echo $user->v_phone; ?></a></p>
                 </div>
                 <div class="col-md-3">
                     <b>Email:</b>
-                    <p><a href="mailto:tuyendung@transcosmos.com">tuyendung@transcosmos.com</a></p>
+                    <p><a href="mailto:<?php echo $user->v_email; ?>"><?php echo $user->v_email; ?></a></p>
                 </div>
                 <div class="col-md-3">
                     <b>Website:</b>
-                    <p><a href="trans-cosmos.com.vn">trans-cosmos.com.vn</a></p>
+                    <p><a href="http://hoablog.herokuapp.com">hoablog.herokuapp.com</a></p>
                 </div>
             </div>
         </div>
@@ -106,7 +109,7 @@
                     </form>
                 </div>
                 <div class="col-md-6 d-flex align-items-stretch">
-                    <div id="map"></div>
+                    <img src="images/upload/cam-on.png" class="img-fluid" alt="Image placeholder">
                 </div>
             </div>
         </div>
