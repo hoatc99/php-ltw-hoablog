@@ -319,9 +319,7 @@
                           v_post_content = :post_content,
                           v_main_image_url = :main_image_url,
                           v_alt_image_url = :alt_image_url,
-                          n_blog_post_views = :blog_post_views,
                           n_home_page_placement = :home_page_placement,
-                          f_post_status = :post_status,
                           d_date_updated = :date_updated,
                           d_time_updated = :time_updated
                       WHERE
@@ -345,9 +343,7 @@
             $stmt->bindParam(':post_content', $this->v_post_content);
             $stmt->bindParam(':main_image_url', $this->v_main_image_url);
             $stmt->bindParam(':alt_image_url', $this->v_alt_image_url);
-            $stmt->bindParam(':blog_post_views', $this->n_blog_post_views);
             $stmt->bindParam(':home_page_placement', $this->n_home_page_placement);
-            $stmt->bindParam(':post_status', $this->f_post_status);
             $stmt->bindParam(':date_updated', $this->d_date_updated);
             $stmt->bindParam(':time_updated', $this->d_time_updated);
 

@@ -122,10 +122,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 ftco-animate">
-                    <p>
-                        <img src="images/upload/<?php echo $blog->v_main_image_url; ?>" alt="" class="img-fluid">
-                    </p>
+                    <img src="images/upload/<?php echo $blog->v_main_image_url; ?>" alt="" class="img-fluid">
                     <h2 class="mb-3"><?php echo $blog->v_post_title; ?></h2>
+                    <?php echo html_entity_decode($blog->v_post_summary); ?>
                     <?php echo html_entity_decode($blog->v_post_content); ?>
                     <div class="tag-widget post-tag-container mb-5 mt-5">
                         <div class="tagcloud">
