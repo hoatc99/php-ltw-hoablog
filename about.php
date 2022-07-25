@@ -47,7 +47,7 @@
     <section class="ftco-section">
         <div class="container">
             <div class="row no-gutters">
-                <div class="col-md-5 p-md-5 img img-2" style="background-image: url(images/background/bg_3.jpg);">
+                <div class="col-md-5 p-md-5 img img-2" style="background-image: url(images/avatars/IMG_1090_square.jpg);">
                 </div>
                 <div class="col-md-7 wrap-about pb-md-5 ftco-animate">
                     <div class="heading-section mb-5 pl-md-5">
@@ -68,7 +68,7 @@
                             <div class="col-md-3">Lập trình viên</div>
                             <div class="col-md-3">0908834610</div>
                             <div class="col-md-3">hoact.it@gmail.com</div>
-                            <div class="col-md-3"></div>
+                            <div class="col-md-3">Trường Cao đẳng Kinh tế TP.HCM (HCE)</div>
                         </div>
                     </div>
                 </div>
