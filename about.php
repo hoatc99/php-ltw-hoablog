@@ -50,7 +50,7 @@
     <section class="ftco-section">
         <div class="container">
             <div class="row no-gutters">
-                <div class="col-md-5 p-md-5 img img-2" style="background-image: url(images/avatars/<?php echo $user->v_image_url; ?>);">
+                <div class="col-md-5 p-md-5 img img-2" style="background-image: url(images/avatars/<?php echo $user->v_image; ?>);">
                 </div>
                 <div class="col-md-7 wrap-about pb-md-5 ftco-animate">
                     <div class="heading-section mb-5 pl-md-5">
