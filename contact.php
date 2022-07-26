@@ -87,9 +87,9 @@
     <section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
         <div class="container-wrap">
             <div class="row d-flex align-items-stretch no-gutters">
-                <div class="col-md-6 p-5 order-md-last">
+                <div class="col-md-6 p-4 order-md-last">
                     <h2>Hãy nêu cảm nhận của bạn về trang này</h2>
-                    <p>Những lời góp ý chân thành của bạn sẽ là bàn đạp vững chắc để chúng tôi cải thiện sản phẩm này.</p>
+                    <p>Những lời góp ý chân thành của bạn sẽ là động lực để chúng tôi cải thiện sản phẩm này.</p>
                     <form action="" method="POST" onsubmit="alert('Chúng tôi đã nhận được lời góp ý của bạn. Xin chân thành cảm ơn.');">
                         <div class="form-group">
                             <input type="text" class="form-control" name="c_name" placeholder="Nhập tên của bạn">
@@ -101,15 +101,15 @@
                             <input type="text" class="form-control" name="c_phone" placeholder="Nhập số điện thoại của bạn">
                         </div>
                         <div class="form-group">
-                            <textarea name="c_message" cols="30" rows="7" class="form-control" placeholder="Nhập nội dung góp ý"></textarea>
+                            <textarea name="c_message" cols="30" rows="5" class="form-control" placeholder="Nhập nội dung góp ý"></textarea>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Gửi" name="submit_contact" class="btn btn-primary py-3 px-5">
                         </div>
                     </form>
                 </div>
-                <div class="col-md-6 d-flex align-items-stretch">
-                    <img src="images/upload/cam-on.png" class="img-fluid" alt="Image placeholder">
+                <div class="col-md-6 p-4 d-flex align-items-stretch">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.605252125846!2d106.67114211411639!3d10.76487536235205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ee10bef3c07%3A0xfd59127e8c2a3e0!2zVHLGsOG7nW5nIENhbyDEkeG6s25nIEtpbmggVOG6vyBUUC5IQ00!5e0!3m2!1svi!2s!4v1658804815031!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>

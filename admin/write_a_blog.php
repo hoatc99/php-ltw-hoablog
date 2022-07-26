@@ -1,6 +1,7 @@
 <?php
 
     include_once 'include.php';
+    include_once 'includes/check_login.php';
 
 ?>
 

@@ -1,6 +1,7 @@
 <?php
 
     include_once 'include.php';
+    include_once 'includes/check_login.php';
 
     $blog->n_user_id = $_SESSION['user_id'];
 

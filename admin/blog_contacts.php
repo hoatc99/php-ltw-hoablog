@@ -1,6 +1,7 @@
 <?php
 
     include_once 'include.php';
+    include_once 'includes/check_login.php';
 
     if ($_SESSION['user_id'] != $admin_id) {
         flag_set('You don\'t have enough permission to reach contact page', 'failed');
