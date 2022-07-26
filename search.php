@@ -46,15 +46,23 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="row">
-                        <?php while($query_blog_item = $query_blog_list->fetch()): ?>
+                        <?php 
+                            while($query_blog_item = $query_blog_list->fetch()): 
+                                $user->n_user_id = $query_blog_item['n_user_id'];
+                                $user->read_single();
+                                $comment->n_blog_post_id = $query_blog_item['n_blog_post_id'];
+                                $like->n_blog_post_id = $query_blog_item['n_blog_post_id'];
+                        ?>
                         <div class="col-md-6 ftco-animate">
                             <div class="blog-entry">
                                 <a href="read_blog.php?id=<?php echo $query_blog_item['n_blog_post_id'] ?>" class="block-20" style="background-image: url('images/upload/<?php echo $query_blog_item['v_main_image_url'] ?>');"></a>
                                 <div class="text d-flex py-4">
                                     <div class="meta mb-3">
                                         <div><a href="#"><?php echo $query_blog_item['d_date_created']; ?></a></div>
-                                        <div><a href="#">Admin</a></div>
-                                        <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                        <div><a href="#"><?php echo $user->v_fullname; ?></a></div>
+                                        <div><a href="#"><span class="icon-eye"></span> <?php echo $query_blog_item['n_blog_post_views']; ?></a></div>
+                                        <div><a href="#"><span class="icon-heart text-danger"></span> <?php echo $like->read()->rowCount(); ?></a></div>
+                                        <div><a href="#" class="meta-chat"><span class="icon-chat"></span> <?php echo $comment->read_comment_reply_by_blog_id()->rowCount(); ?></a></div>
                                     </div>
                                     <div class="desc pl-3">
                                         <h3 class="heading"><a href="read_blog.php?id=<?php echo $query_blog_item['n_blog_post_id'] ?>"><?php echo $query_blog_item['v_post_title']; ?></a></h3>
