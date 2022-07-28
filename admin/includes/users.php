@@ -213,6 +213,14 @@
             return false;
         }
 
+        public function api_check_username() {
+            $sql = "SELECT * FROM $this->table WHERE v_username = :username";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':username', $this->v_username);
+            $stmt->execute();
+            return $stmt->rowCount();
+        }
+
     }
 
 ?>

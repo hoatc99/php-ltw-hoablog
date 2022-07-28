@@ -78,14 +78,14 @@
                             <div class="col-md-12">
                                 <!-- DATA TABLE-->
                                 <div class="table-responsive m-b-40">
-                                    <table class="table table-borderless table-data3">
+                                    <table id="dataTables" class="table table-borderless table-data3">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Blog Title</th>
-                                                <th>Blog Status</th>
-                                                <th class="col-1">Sum Of Comments</th>
-                                                <th class="col-5">Action</th>
+                                                <th>Status</th>
+                                                <th>Comments</th>
+                                                <th class="col-4">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>

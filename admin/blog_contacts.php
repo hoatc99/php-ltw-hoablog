@@ -63,16 +63,15 @@
                             <div class="col-md-12">
                                 <!-- DATA TABLE-->
                                 <div class="table-responsive m-b-40">
-                                    <table class="table table-borderless table-data3">
+                                    <table id="dataTables" class="table table-borderless table-data3">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Fullname</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
-                                                <th>Message</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
+                                                <th class="col-4">Message</th>
+                                                <th class="col-2">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -88,11 +87,6 @@
                                                 <td><?php echo $contact_item['v_email']; ?></td>
                                                 <td><?php echo $contact_item['v_phone']; ?></td>
                                                 <td><?php echo $contact_item['v_message']; ?></td>
-                                                <?php if ($contact_item['f_contact_status'] == 1): ?>
-                                                <td class="process">Active</td>
-                                                <?php elseif ($contact_item['f_contact_status'] == 0): ?>
-                                                <td class="denied">Deleted</td>
-                                                <?php endif; ?>
                                                 <td>
                                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-contact<?php echo $contact_item['n_contact_id']; ?>">
                                                         <i class="fa fa-trash"></i> Drop</button>

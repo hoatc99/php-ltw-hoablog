@@ -139,7 +139,7 @@
                             <div class="col-md-12">
                                 <!-- DATA TABLE-->
                                 <div class="table-responsive m-b-40">
-                                    <table class="table table-borderless table-data3">
+                                    <table id="dataTables" class="table table-borderless table-data3">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
@@ -147,7 +147,7 @@
                                                 <th>Meta Title</th>
                                                 <th>Path</th>
                                                 <th>Blog Count</th>
-                                                <th>Action</th>
+                                                <th class="col-3">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>

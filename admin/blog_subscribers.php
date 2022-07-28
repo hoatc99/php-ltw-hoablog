@@ -63,13 +63,14 @@
                             <div class="col-md-12">
                                 <!-- DATA TABLE-->
                                 <div class="table-responsive m-b-40">
-                                    <table class="table table-borderless table-data3">
+                                    <table id="dataTables" class="table table-borderless table-data3">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Email</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th class="col-2">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -82,11 +83,8 @@
                                             <tr>
                                                 <td><?php echo $subscriber_item['n_sub_id']; ?></td>
                                                 <td><?php echo $subscriber_item['v_sub_email']; ?></td>
-                                                <?php if ($subscriber_item['f_sub_status'] == 1): ?>
-                                                <td class="process">Active</td>
-                                                <?php elseif ($subscriber_item['f_sub_status'] == 0): ?>
-                                                <td class="denied">Deleted</td>
-                                                <?php endif; ?>
+                                                <td><?php echo $subscriber_item['d_date_created']; ?></td>
+                                                <td><?php echo $subscriber_item['d_time_created']; ?></td>
                                                 <td>
                                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-subscriber<?php echo $subscriber_item['n_sub_id']; ?>">
                                                         <i class="fa fa-trash"></i> Drop</button>

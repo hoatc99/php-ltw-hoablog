@@ -5,7 +5,8 @@
 <link href="assets/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
 <!-- Bootstrap CSS-->
-<link href="assets/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+<!-- <link href="assets/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all"> -->
+<link href="assets/bootstrap-4.6.2-dist/css/bootstrap.min.css" rel="stylesheet" media="all">
 
 <!-- Vendor CSS-->
 <link href="assets/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
@@ -24,3 +25,6 @@
 
 <!-- Comment formatting -->
 <link href="assets/css/comment.css" rel="stylesheet" />
+
+<!-- Datatable CSS -->
+<link href="assets/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
