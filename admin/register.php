@@ -98,7 +98,6 @@
                     data: { username: username }
                     })
                 .done((response) => {
-                    console.log(response);
                     if (response > 0) {
                         $('#username_message').text('This username has already been taken. Please choose another one.');
                         is_check_username = false;
